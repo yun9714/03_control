@@ -54,7 +54,7 @@ public class ConditionExample {// 기능 정의용 클래스
 		System.out.print("달 입력 : ");
 		int month = sc.nextInt(); // 1>월<이라 입력하면 error
 		// 사용자에게 온도를 받음
-		System.out.println("온도 입력 : ");
+		System.out.print("온도 입력 : ");
 		int temperature = sc.nextInt();
 		String season;
 		// 봄 : 3,4,5
@@ -69,9 +69,9 @@ public class ConditionExample {// 기능 정의용 클래스
 			if(temperature >= 35 ) {
 				// season = season + "";
 				// season = season + "폭염경보";
-				season += "폭염경보";
+				season += " 폭염경보";
 			}else if(temperature >= 33) {
-				season += "폭염 주의보";
+				season += " 폭염 주의보";
 			}
 		}else if(month >= 9 && month <= 11) {
 			season = "가을";
@@ -80,7 +80,7 @@ public class ConditionExample {// 기능 정의용 클래스
 		}else {
 			season = "계절이 없습니다.";
 		}
-		System.out.println(season);
+		System.out.println(season);	
 	}
 	public void ex4() {
 		// 나이를 입력받아
@@ -111,9 +111,9 @@ public class ConditionExample {// 기능 정의용 클래스
 		Scanner sc = new Scanner(System.in);
 		System.out.print("점수 입력 : ");
 		int score = sc.nextInt();
-		String score2;
+		String score2; // 결과 값을 String 변수 선언
 		
-		if(score >= 90 && score < 101) {
+		/*if(score >= 90 && score < 101) {
 			score2 = "A";
 		}else if(score >= 80 && score < 90) {
 			score2 = "B";
@@ -125,6 +125,21 @@ public class ConditionExample {// 기능 정의용 클래스
 			score2 = "F";
 		} else {
 			score2 = "잘못 입력하셨습니다.";
+		}
+		System.out.println(score2);*/
+		
+		if(score < 0 || score > 100) {
+			score2 = "잘못 입력";
+		}else if(score >= 90) {
+			score2 = "A"; 
+		}else if(score >= 80) {
+			score2 = "B";
+		}else if(score >= 70) {
+			score2 = "C";
+		}else if(score >= 60) {
+			score2 = "D";
+		}else {
+			score2 = "F";
 		}
 		System.out.println(score2);
 	}
@@ -144,13 +159,15 @@ public class ConditionExample {// 기능 정의용 클래스
 		Scanner sc = new Scanner(System.in);
 		System.out.print("나이 입력 : ");
 		int age = sc.nextInt();
+		String result; // 결과 담을 변수 선언, 초기화X 
 		
-		if(age < 0 || age > 100) {
+		// <syso사용>
+		/*if(age < 0 || age > 100) {
 			 System.out.println("나이를 잘못 입력하셨습니다.");
 		} else {	
 			System.out.print("키 입력 : ");
 			double height = sc.nextDouble();
-			if(height < 0 || height >250.0) {
+			if(height < 0 || height > 250.0) {
 				System.out.println("키를 잘못 입력하셨습니다.");
 			} else {
 				if(age >= 12 && height < 140.0) {
@@ -163,9 +180,33 @@ public class ConditionExample {// 기능 정의용 클래스
 					System.out.println("탑승 가능.");
 				}
 			}
-		}
-	
-	}
+		}*/
 		
+		// <String 사용>
+		if(age < 0 || age > 100) {
+			result = "나이를 잘못 입력하셨습니다.";
+		} else {
+			System.out.print("키 입력 : ");
+			double height = sc.nextDouble();
+			
+			if(height < 0 || height > 250) {
+				result = "키를 잘못 입력하셨습니다.";
+			} else {// 키를 잘 입력한 경우
+				
+				if(age >= 12 && height < 140.0) {
+					result = "나이는 적절하나, 키가 적절치 않음.";
+				}else if(age < 12 && height >= 140.0) {
+					result = "키는 적절하나, 나이가 적절치 않음.";
+				}else if(age < 12 && height < 140.0) {
+					result = "나이와 키 모두 적절치 않음.";
+				}else {
+					result = "탑승 가능.";
+				}
+			}
+		}
+		System.out.println(result);
+	}
+	
+//
 }
 
