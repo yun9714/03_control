@@ -9,6 +9,10 @@ public class ConditionRun {// 기능 실행용 클래스
 		//condition.ex4();
 		//condition.ex5();
 		//condition.ex6();
-	}
-
+		
+		SwitchExample switchEx = new SwitchExample();
+		//switchEx.ex1();
+		//switchEx.ex2();
+		switchEx.ex3();
+	}	
 }
